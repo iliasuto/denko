@@ -23,5 +23,7 @@ int main() {
     cout << "decoded: " << decoded << '\n' << endl;
   }
 
+  denko::Base64::decode("./in.data", "./out.data");
+
   return 0;
 }

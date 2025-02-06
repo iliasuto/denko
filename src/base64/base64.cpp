@@ -119,4 +119,64 @@ std::string Base64::decode(const std::string &encoded_data) {
   return decoded;
 }
 
+bool Base64::encode(const std::string &in_file, const std::string &out_file) {
+  std::ifstream in(in_file);
+  if (!in) {
+    std::cerr << "ifstream: open in_file failed." << std::endl;
+    return false;
+  }
+
+  std::ofstream out(out_file, std::ios::trunc);
+  if (!out) {
+    std::cerr << "ifstream: open out_file failed." << std::endl;
+    in.close();
+    return false;
+  }
+
+  std::string text;
+  in >> text;
+
+  std::string encoded_text = Base64::encode(text);
+  if (encoded_text.empty()) {
+    std::cerr << "encode: in_file is empty or can not be encoded." << std::endl;
+    return false;
+  }
+  out << encoded_text << std::flush;
+
+  in.close();
+  out.close();
+
+  return true;
+}
+
+bool Base64::decode(const std::string &in_file, const std::string &out_file) {
+  std::ifstream in(in_file);
+  if (!in) {
+    std::cerr << "ifstream: open in_file failed." << std::endl;
+    return false;
+  }
+
+  std::ofstream out(out_file, std::ios::trunc);
+  if (!out) {
+    std::cerr << "ifstream: open out_file failed." << std::endl;
+    in.close();
+    return false;
+  }
+
+  std::string text;
+  in >> text;
+
+  std::string decoded_text = Base64::decode(text);
+  if (decoded_text.empty()) {
+    std::cerr << "decode: in_file is empty or can not be decoded." << std::endl;
+    return false;
+  }
+  out << decoded_text << std::flush;
+
+  in.close();
+  out.close();
+
+  return true;
+}
+
 } // namespace denko

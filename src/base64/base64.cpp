@@ -2,17 +2,17 @@
 
 namespace denko {
 
-const std::string base64::base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const std::string Base64::base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                          "abcdefghijklmnopqrstuvwxyz"
                                          "0123456789+/";
-const char base64::padding_char = '=';
+const char Base64::padding_char = '=';
 
-std::string base64::encode(const std::vector<byte_t> &origin_data) {
+std::string Base64::encode(const std::string &origin_data) {
   std::string encoded;
 
   int i = 0, j = 0;
-  byte_t chars_3[3]; // 每组3个字节
-  byte_t chars_4[4]; // 分成4块每块6个比特
+  char chars_3[3]; // 每组3个字节
+  char chars_4[4]; // 分成4块每块6个比特
 
   for (auto &byte : origin_data) {
     chars_3[i++] = byte;
@@ -45,13 +45,14 @@ std::string base64::encode(const std::vector<byte_t> &origin_data) {
       encoded += base64_chars[chars_4[i]];
     }
 
-    while (i++ < 3)
+    while (i++ < 3) {
       encoded += padding_char;
+    }
   }
 
   return encoded;
 }
 
-std::vector<byte_t> base64::decode(const std::string &encoded_data) {}
+std::string Base64::decode(const std::string &encoded_data) { return {}; }
 
 } // namespace denko

@@ -6,9 +6,7 @@
 
 namespace denko {
 
-using byte_t = unsigned char;
-
-class base64 {
+class Base64 {
 
 private:
   // valid base64 chars
@@ -16,15 +14,15 @@ private:
   // padding char is '='
   static const char padding_char;
   // check is the char a valid base64 char
-  static inline bool is_base64_chars(byte_t c) {
+  static inline bool is_base64_chars(char c) {
     return (isalnum(c) || (c == '+') || (c == '/'));
   }
 
 public:
-  // encode from 8bits' array
-  static std::string encode(const std::vector<byte_t> &origin_data);
-  // decode to 8bits' array
-  static std::vector<byte_t> decode(const std::string &encoded_data);
+  // encode
+  static std::string encode(const std::string &origin_data);
+  // decode
+  static std::string decode(const std::string &encoded_data);
 };
 
 } // namespace denko

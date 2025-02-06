@@ -7,8 +7,9 @@ project(DenKo
   DESCRIPTION "The DenKo means Decoding and Encoding. "
 )
 
+
 add_subdirectory(src bin)
-add_subdirectory(test test)
+add_subdirectory(test bin/test)
 
 
 include(cmake/install-config.cmake)

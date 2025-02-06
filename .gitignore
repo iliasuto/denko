@@ -1,3 +1,7 @@
-/build/
-/.vscode/
-/release/
+# ignore editor config files
+.vscode
+.DS_Store
+.idea
+
+# ignore cmake build-dir
+/build

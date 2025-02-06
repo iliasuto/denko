@@ -9,3 +9,8 @@ project(DenKo
 
 add_subdirectory(src bin)
 add_subdirectory(test test)
+
+
+include(cmake/install-config.cmake)
+include(cmake/cpack-config.cmake)
+include(cmake/path-check.cmake)

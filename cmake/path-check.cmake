@@ -1,0 +1,6 @@
+message("===== Path Check =====")
+message("CMAKE_SOURCE_DIR: " ${CMAKE_SOURCE_DIR})
+message("CMAKE_BINARY_DIR: " ${CMAKE_BINARY_DIR})
+message("CMAKE_INSTALL_PREFIX: " ${CMAKE_INSTALL_PREFIX})
+message("DENKO_SRC: " ${DENKO_SRC})
+message("======================")

@@ -1,24 +1,27 @@
-# Base64
+# Introduction
 
-class name is `Base64`.
+This library "libdenko-base64.a" provides tools for Base64 decoding and encoding.
 
-namespace is `denko::Base64`.
+Include header `denko/base64.h`.
 
-## member function
+# How to encode text to base64
 
-### encode
 ```cpp
-  // encode ( string -> string )
-  static std::string encode(const std::string &origin_data);
+	// encode ( string -> string )
+	string data("HELLO");
+	string encoded = denko::Base64::encode(data);
+	cout << encoded << endl; // SEVMTE8=
 ```
 
-### decode
+# How to decode base64 to text
 ```cpp
   // decode ( string -> string )
-  static std::string decode(const std::string &encoded_data);
+	string encoded("SEVMTE8=");
+	string decoded = denko::Base64::decode(encoded);
+	cout << decoded << endl; // HELLO
 ```
 
-## test code
+# A exmple for test decode::Base64
 
 ```cpp
 

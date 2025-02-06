@@ -2,31 +2,52 @@
 #define BASE64_H_
 
 #include <cctype>
+#include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 
 namespace denko {
 
-// Use unsigned char to avoid errors in shift operations.
+/// @brief Use unsigned char to avoid errors in shift operations.
 using byte_t = unsigned char;
 
 class Base64 {
 
 private:
-  // valid base64 chars
+  ///@brief valid base64 chars
   static const std::string base64_chars;
-  // padding char is '='
+
+  /// @brief padding char is '='
   static const char padding_char;
-  // check is the char a valid base64 char
+
+  /// @brief check is the char a valid base64 char
   static inline bool is_base64_chars(byte_t c) {
     return (isalnum(c) || (c == '+') || (c == '/') || (c == '='));
   }
 
 public:
-  // encode ( string -> string )
+  /// @brief encode ( string -> string )
+  /// @param origin_data
+  /// @return encoded data
   static std::string encode(const std::string &origin_data);
-  // decode ( string -> string )
+
+  /// @brief decode ( string -> string )
+  /// @param encoded_data
+  /// @return decoded data
   static std::string decode(const std::string &encoded_data);
+
+  /// @brief encode (file -> file)
+  /// @param in_file
+  /// @param out_file
+  /// @return if encode successly, return ture. Otherwise false.
+  static bool encode(const std::string &in_file, const std::string &out_file);
+
+  /// @brief decode (file -> file)
+  /// @param in_file
+  /// @param out_file
+  /// @return if decode successly, return ture. Otherwise false.
+  static bool decode(const std::string &in_file, const std::string &out_file);
 };
 
 } // namespace denko

@@ -7,18 +7,18 @@ Include header `denko/base64.h`.
 # How to encode text to base64
 
 ```cpp
-	// encode ( string -> string )
-	string data("HELLO");
-	string encoded = denko::Base64::encode(data);
-	cout << encoded << endl; // SEVMTE8=
+// encode ( string -> string )
+string data("HELLO");
+string encoded = denko::Base64::encode(data);
+cout << encoded << endl; // SEVMTE8=
 ```
 
 # How to decode base64 to text
 ```cpp
-  // decode ( string -> string )
-	string encoded("SEVMTE8=");
-	string decoded = denko::Base64::decode(encoded);
-	cout << decoded << endl; // HELLO
+// decode ( string -> string )
+string encoded("SEVMTE8=");
+string decoded = denko::Base64::decode(encoded);
+cout << decoded << endl; // HELLO
 ```
 
 # A exmple for test decode::Base64

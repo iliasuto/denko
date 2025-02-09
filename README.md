@@ -33,5 +33,10 @@ cmake --install ./build
 # cmake --install ./build --prefix <dirpath>
 ```
 
+# How to use
 
+You can refer to the wiki or docs.
+
+- [wiki](https://github.com/iliasuto/denko/wiki).
+- [docs](https://github.com/iliasuto/denko/tree/main/docs).
 

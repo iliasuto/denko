@@ -104,6 +104,6 @@ int main() {
 }
 ```
 
-# More test code and examples
+# More examples
 
-see [test](https://github.com/iliasuto/denko/tree/main/test)
+see [examples](https://github.com/iliasuto/denko/tree/main/examples)

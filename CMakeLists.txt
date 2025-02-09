@@ -8,8 +8,8 @@ project(DenKo
 )
 
 
-add_subdirectory(src bin)
-add_subdirectory(test bin/test)
+add_subdirectory(src binary)
+add_subdirectory(examples examples)
 
 
 include(cmake/install-config.cmake)

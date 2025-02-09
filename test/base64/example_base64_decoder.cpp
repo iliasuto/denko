@@ -6,18 +6,18 @@ int main(int argc, char *argv[]) {
 
   if (argc == 1) {
 
-    cout << "输入文本, 输出Base64编码.\n" << "> ";
+    cout << "输入Base64编码, 输出文本.\n" << "> ";
 
     string text;
     while (getline(cin, text)) {
-      string encoded_text = Base64::encode(text);
+      string encoded_text = Base64::decode(text);
       cout << encoded_text << "\n> ";
     }
 
   } else if (argc == 2) {
 
-    string encoded_file = Base64::encode_file(argv[1]);
-    cout << encoded_file << endl;
+    string decoded_file = Base64::decode_file(argv[1]);
+    cout << decoded_file << endl;
 
   } else {
 

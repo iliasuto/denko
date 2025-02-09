@@ -1,4 +1,5 @@
 #include "base64.h"
+#include <vector>
 #include <iostream>
 
 int main() {
@@ -33,14 +34,17 @@ int main() {
 
   cout << endl << "To test the invalid base64:" << endl;
 
-  string invalid("1ad112*2*");
+  string invalid("12313*");
   cout << "invalid == " << invalid << endl;
 
   string decoded_invalid = denko::Base64::decode(invalid);
   if (decoded_invalid == denko::Base64::NONE)
     cout << "decoded_invalid == denko::Base64::NONE" << endl;
 
-	cout << "NOTICE: to decode \"\" also returns a NONE." << endl;
+  cout << endl << "NOTICE:\nto decode \"\" returns \"\"." << endl;
+  if("" != denko::Base64::NONE) cout << "(\"\" != denko::Base64::NONE)" << endl;
+  if("\0" != denko::Base64::NONE) cout << "(\"\\0\" != denko::Base64::NONE)" << endl;
+
 
   return 0;
 }

@@ -5,7 +5,6 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
 
 namespace denko {
 
@@ -27,30 +26,28 @@ private:
   }
 
 public:
-  /// @brief Sentinel representing an invalid string and NULL string.
+  /// @brief Sentinel representing on invalid string.
   static const std::string NONE;
 
   /// @brief encode ( string -> string )
-  /// @param origin_data
-  /// @return encoded data
+  /// @param origin_data the string to encode to.
+  /// @return return encoded string.
   static std::string encode(const std::string &origin_data);
 
   /// @brief decode ( string -> string )
-  /// @param encoded_data
-  /// @return decoded data
+  /// @param encoded_data the string to decode to.
+  /// @return return decoded string. if failed Base64::NONE.
   static std::string decode(const std::string &encoded_data);
 
-  /// @brief encode (file -> file)
-  /// @param in_file
-  /// @param out_file
-  /// @return if encode successly, return ture. Otherwise false.
-  static bool encode(const std::string &in_file, const std::string &out_file);
+  /// @brief encode (file -> string)
+  /// @param in_file the filename to encode to.
+  /// @return return encoded string.
+  static std::string encode_file(const std::string &in_file);
 
-  /// @brief decode (file -> file)
-  /// @param in_file
-  /// @param out_file
-  /// @return if decode successly, return ture. Otherwise false.
-  static bool decode(const std::string &in_file, const std::string &out_file);
+  /// @brief decode (file -> string)
+  /// @param in_file the filename to decode to.
+  /// @return return decoded string. if failed Base64::NONE.
+  static std::string decode_file(const std::string &in_file);
 };
 
 } // namespace denko

@@ -14,35 +14,33 @@ int main(int argc, char *argv[]) {
       string encoded_text = Base64::encode(text);
       cout << encoded_text << "\n> ";
     }
+
   } else if (argc == 2) {
-    std::ifstream in(argv[1]);
+    ifstream in(argv[1]);
     if (!in) {
-      std::cerr << "ifstream: open \"" << argv[1] << "\" failed." << std::endl;
-      return false;
+      cerr << "ifstream: open \"" << argv[1] << "\" failed." << endl;
+      return -1;
     }
 
-    std::string text;
-    std::string buf;
-    // char buf;
-    // while (in.read(&buf, 1)) {
-    //   text.push_back(buf);
-    // }
-
+    string text;
+    string buf;
     while (getline(in, buf)) {
       text += buf;
       text += "\n";
     }
+    in.close();
 
-    std::string encoded_text = Base64::encode(text);
+    string encoded_text = Base64::encode(text);
     if (encoded_text.empty()) {
-      std::cerr << "encode: in_file is empty or can not be encoded."
-                << std::endl;
+      cerr << "encode: in_file is empty or can not be encoded." << endl;
       return false;
     }
-    cout << encoded_text << std::flush;
 
-    in.close();
-    return true;
+    cout << encoded_text << flush;
+
+  } else {
+    cerr << "argc: args count too many!" << endl;
+    return -1;
   }
 
   return 0;

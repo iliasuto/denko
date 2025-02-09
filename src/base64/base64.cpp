@@ -2,11 +2,16 @@
 
 namespace denko {
 
+const std::string Base64::NONE("");
+
+// 有效的base64字符
 const std::string Base64::base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                          "abcdefghijklmnopqrstuvwxyz"
                                          "0123456789+/";
+// 尾部填充字符
 const char Base64::padding_char = '=';
 
+// encode s -> s
 std::string Base64::encode(const std::string &origin_data) {
   std::string encoded;
 
@@ -53,6 +58,7 @@ std::string Base64::encode(const std::string &origin_data) {
   return encoded;
 }
 
+// decode s -> s
 std::string Base64::decode(const std::string &encoded_data) {
   std::string decoded;
 
@@ -63,7 +69,7 @@ std::string Base64::decode(const std::string &encoded_data) {
   for (const byte_t &byte : encoded_data) {
 
     if (!is_base64_chars(byte)) {
-      return {};
+      return NONE;
     }
 
     if (byte == '=') {
@@ -178,5 +184,6 @@ bool Base64::decode(const std::string &in_file, const std::string &out_file) {
 
   return true;
 }
+
 
 } // namespace denko

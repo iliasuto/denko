@@ -18,7 +18,7 @@ private:
   ///@brief valid base64 chars
   static const std::string base64_chars;
 
-  /// @brief padding char is '='
+  /// @brief padding char
   static const char padding_char;
 
   /// @brief check is the char a valid base64 char
@@ -27,6 +27,9 @@ private:
   }
 
 public:
+  /// @brief Sentinel representing an invalid string and NULL string.
+  static const std::string NONE;
+
   /// @brief encode ( string -> string )
   /// @param origin_data
   /// @return encoded data

@@ -13,18 +13,6 @@ using byte_t = unsigned char;
 
 class Base64 {
 
-private:
-  ///@brief valid base64 chars
-  static const std::string base64_chars;
-
-  /// @brief padding char
-  static const char padding_char;
-
-  /// @brief check is the char a valid base64 char
-  static inline bool is_base64_chars(byte_t c) {
-    return (isalnum(c) || (c == '+') || (c == '/') || (c == '='));
-  }
-
 public:
   /// @brief Sentinel representing on invalid string.
   static const std::string NONE;
@@ -48,6 +36,18 @@ public:
   /// @param in_file the filename to decode to.
   /// @return return decoded string. if failed Base64::NONE.
   static std::string decode_file(const std::string &in_file);
+
+private:
+  ///@brief valid base64 chars
+  static const std::string base64_chars;
+
+  /// @brief padding char
+  static const char padding_char;
+
+  /// @brief check is the char a valid base64 char
+  static inline bool is_base64_chars(byte_t c) {
+    return (isalnum(c) || (c == '+') || (c == '/') || (c == '='));
+  }
 };
 
 } // namespace denko

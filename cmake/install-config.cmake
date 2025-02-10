@@ -1,13 +1,13 @@
+# include
 set(DENKO_SRC ${CMAKE_SOURCE_DIR}/src)
-
-set(DENKO_LIB
-  denko-base64
-)
-
 set(DENKO_INCLUDE
   ${DENKO_SRC}/base64/base64.h
 )
 
+# lib
+set(DENKO_LIB denko)
+
+# install config
 install(TARGETS ${DENKO_LIB} DESTINATION lib)
 install(FILES ${DENKO_INCLUDE} DESTINATION include/denko/)
 

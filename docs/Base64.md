@@ -1,6 +1,6 @@
 # Introduction
 
-This library "libdenko-base64.a" provides tools for Base64 decoding and encoding.
+This library "libdenko.a" provides tools for Base64 decoding and encoding.
 
 Include header `denko/base64.h`.
 

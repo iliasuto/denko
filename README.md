@@ -37,6 +37,5 @@ cmake --install ./build
 
 You can refer to the wiki or docs or examples.
 
-- [wiki](https://github.com/iliasuto/denko/wiki).
 - [docs](https://github.com/iliasuto/denko/tree/main/docs).
 - [examples](https://github.com/iliasuto/denko/tree/main/examples)

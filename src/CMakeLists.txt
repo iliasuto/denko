@@ -1,3 +1,9 @@
-# /src/CMakeLists.txt
+# /src/base64/CMakeLists.txt
 
-add_subdirectory(base64)
+add_library(denko STATIC
+  base64/base64.cpp
+)
+
+target_include_directories(denko PUBLIC
+  base64
+)
